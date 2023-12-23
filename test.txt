@@ -18,6 +18,12 @@ while not player_found_key:
     steps += 1
     print()
     print('możesz udać się w kierunkach określonych jako [W/A/S/D]: ')
+    print(player_x, player_y)
+
+    distance_after_move = sqrt((key_x - player_x) ** 2 + (key_y - player_y) ** 2)
+    print(distance_after_move)
+    
+
 
     move = input('dokąd idziesz? ')
     match move.lower():
@@ -49,23 +55,33 @@ while not player_found_key:
             print('koniec gry!')
             quit()
 
-        case 'y':
+        case default:
             print('nie wiem dokąd idziesz..')
             continue
 
+    if distance_before_move < distance_after_move:
+        print('zimniej')
+    else:
+        print('cieplej')
+        distance_before_move = distance_after_move
 
-if player_x == key_x and player_y == key_y:
+        print(player_x, player_y)
+    if player_x == key_x and player_y == key_y:
+
+
         print('klucz jest twój!')
         print(f'potrzebowałeś {steps} ruchów.')
         quit()
-
 distance_after_move = sqrt((key_x - player_x) ** 2 + (key_y - player_y) ** 2)
 
-if distance_before_move < distance_after_move:
-     print('cieplej')
-else:
-     print('zimniej')
 
-distance_before_move = distance_after_move
 
-print(player_x, player_y)
+
+
+
+
+
+
+
+
+
